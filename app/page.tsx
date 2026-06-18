@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+
 
 export default function Home() {
   const [subject, setSubject] = useState("");
@@ -26,14 +26,7 @@ export default function Home() {
 
 setPlan(data.plan);
 
-const { error } = await supabase.from("plans").insert([
-  {
-    subject,
-    plan: data.plan,
-  },
-]);
 
-console.log("Supabase Error:", error);
   };
 
   return (
